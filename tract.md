@@ -1,0 +1,10 @@
+user.name=a02436729
+user.email=a02436729@aggies.usu.edu
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/a02436729/BIOL3070-peasley
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
