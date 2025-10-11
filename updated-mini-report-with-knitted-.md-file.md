@@ -1,7 +1,7 @@
 Warm-up mini-Report: Mosquito Blood Hosts in Salt Lake City, Utah
 ================
 Kylie Peasley
-2025-10-10
+2025-10-11
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -30,26 +30,30 @@ key amplifying species. Previously, an experimental infection study had
 identified several species of birds, including House Finches, as being
 better amplifying hosts than others due to their ability to develop high
 viremia levels. Komar et al. (2003). To determine the relationship
-between House Finches and mosquitos in the transmission of WNV,
-bloodmeal data from WNV positive and negative locations was analyzed
-using linear regression tests. Overall, the results support the
-hypothesis that House Finches are key amplifiers of WNV transmission due
-to both their ability to develop higher viremia levels than other
-species and the finding that House Finches are a common bloodmeal for
-mosquitoes in WNV positive areas.
+between House Finches and mosquitos in the transmission of WNV, blood
+meal data from WNV positive and negative locations was analyzed using
+linear regression tests. Overall, the results support the hypothesis
+that House Finches are key amplifiers of WNV transmission due to both
+their ability to develop higher viremia levels than other species and
+the finding that House Finches are a common blood meal for mosquitoes in
+WNV positive areas.
 
 # BACKGROUND
 
-Provide background on the WNV system and why we are studying mosquito
-blood meals. Include information on DNA extractions, PCR, sequencing,
-and how this relates to identifying hosts. Support your statements with
-references.
+West Nile Virus (WNV) is a mosquito-borne disease maintained by a
+transmission cycle between birds and mosquitoes, and can spread to
+humans and other animals by a bite from an infected mosquito. Mosquitoes
+can infect and become infected by a bird by feeding on their blood.
+Previous research has shown that birds have varying viremia duration and
+some species have longer duration than others, thus acting as amplifying
+hosts for the virus (Komar et al.,2003).
 
-Example: You might cite Komar et al. (2003) showing viremia duration in
-birds, which explains why house finches could act as amplifying hosts.
-Connect this to the prediction that locations with more house finch
-blood meals should also show higher rates of WNV-positive mosquito
-pools.
+To identify hosts, the extracted DNA is amplified using polymerase chain
+reaction (PCR) and then sequenced, allowing scientists to match the
+resulting genetic sequences to known species sequences in reference
+databases. Based on this, samples taken from mosquitoes in Salt Lake
+City in high transmission and WNV postive areas should have more House
+Finch bloodmeals than other species in that area.
 
 ``` r
 # Manually transcribe duration (mean, lo, hi) from the last table column
@@ -189,47 +193,60 @@ host_species_colors <- species_colors
 
 ## Questions
 
-Which bird species tends to contribute the most to WNV transmission in
-Salt Lake City?
+How important are House Finches in the transmission cycle of West Nile
+Virus in Salt Lake City, Utah?
 
 ## Hypothesis
 
-Certain bird species, specifically House Finches, develop higher viremia
-levels compared to other bird species, making them a key amplifying host
-for WNV transmission in Salt Lake City.
+Certain bird species, specifically House Finches, are more likely to a
+source of blood meals for mosquitoes compared to other bird species,
+making them a key amplifying host for WNV transmission in Salt Lake
+City.
 
 ## Prediction
 
 If House Finches are key amplifying hosts of West Nile Virus in Salt
-Lake City, then they will exhibit higher viremia levels and maintain
-those viremia levels for a longer duration than other species.
-Additionally, areas in Salt Lake City where mosquitoes frequently feed
-on House Finches will have higher numbers of WNV-positive mosquitos than
-areas where House Finches are a less common source of bloodmeals.
+Lake City, then they will exhibit higher counts of mosquito blood meals
+in WNV-positive areas than other species. Additionally, areas in Salt
+Lake City where mosquitoes frequently feed on House Finches will have
+higher numbers of WNV-positive mosquitos than areas where House Finches
+are a less common source of bloodmeals.
 
 # METHODS
 
-Fill in here… Summarize the procedures and analyses you use in this
-report. In this section, describe what you did and why. Don’t just
-restate the code — explain the logic of each analysis in plain language.
-Keep each subsection short (2–4 sentences).
+Mosquito samples were collected from various areas in Salt Lake City and
+the sites they came from were categorized into either WNV-positive or
+WNV-negative based on if WNV was detected in the sample. Only the
+mosquitoes with blood meal samples were used for data collection. DNA
+was extracted from the bloodmeals and amplified by Polymerase Chain
+Reaction (PCR) and then sequenced. The DNA sequence results were then
+cross referenced with known species sequences in a database to determine
+the host species for each blood meal.
 
-The methods used to test the hypothesis were 2 barplot analyses and
+The number of mosquito bloodmeals from each host species was compared
+between WNV-negative sites and WNV-positive sites using a barplot for
+ease of visualization. Barplots are helpful to compare categories, in
+this case being the count of bloodmeals from different bird species
+within areas of WNV transmission.
 
 ## Fill in 1st analysis e.g. barplots
 
-Fill in here… Explain that you compared the number of mosquito blood
-meals from each host species between sites with no WNV-positive pools
-and sites with one or more WNV-positive pools. Describe why a barplot
-helps visualize this comparison.
+The bars represent the amount of mosquito blood meals from each bird
+species and indicate whether they came from for ease of comparison
+between the WNV-positive and WNV-negative sites. Barplots summarize the
+data in a way that makes it easier to see which species were more common
+in WNV-positive areas. It helps to visualize patterns that may not have
+been easily identified in the raw data.
 
 ## Fill in 2nd analysis/plot e.g. generalized linear model
 
-Fill in here… Explain that you tested whether the presence or number of
-house finch blood meals predicts whether a site had WNV-positive pools
-(binary) or a higher WNV positivity rate (numeric). Mention that this
-statistical test lets you formally evaluate the relationship suggested
-by the barplots.
+The generalized linear model was used to formally evaluate the
+relationship between House Finch blood meals and WNV-positive areas, as
+suggested by the barplot analysis. The binary method was used to test if
+the likelihood of a site being WNV-positive was related to the number of
+House Finch blood meals. The numeric method was used to test whether
+WNV-positive sites tended to have higher numbers of House Finch blood
+meals compared to WNV-negative sites.
 
 ``` r
 # second-analysis-or-plot, glm with house finch alone against binary +/_
@@ -288,30 +305,65 @@ summary(glm2)
 
 # DISCUSSION
 
-Fill in here… For each analysis, summarize what you found and interpret
-the results. Say whether they support or contradict your hypothesis.
+Both the barplot and generalized linear model analyses supported the
+hypothesis that House Finches act as important amplifying hosts in
+WNV-transmission in Salt Lake City. The bar plots showed that House
+Finch blood meals were more common in sites classified as WNV-positive
+than in WNV-negative sites. The binary model supported this as well,
+with a p-value of 0.0287. The p-value indicates a very significant
+relationship between the two variables, showing that areas with higher
+numbers of mosquito House Finch blood meals are more likely to be
+WNV-positive sites. The numeric model showed that higher counts of House
+Finch blood meals tended to have higher WNV-positivity rates.
+
+All of the analyses support the hypothesis, but there are some
+limitations to this research. The results may have been influenced by
+the time of year the results were collected, especially considering the
+seasonal differences in Utah. The samples were also only collected in
+one area. Although the area is somewhat large, this factor limits how
+applicable the results are for other areas. Lastly, House Finches are
+very common in Salt Lake, so them having high numbers of mosquito blood
+meals may be due to their relative abundance.
 
 ## Interpretation of 1st analysis (e.g. barplots)
 
-The first analysis… fill in here what it was, the summary of the
-results, and your interpretation.
+The barplot analysis suggested that mosquito blood meals from House
+Finches were more common in WNV-positive areas than in WNV-negative
+areas. The visual trend shown by the bar plots supports the hypothesis
+that House Finches play an important role as an amplifying host in WNV
+transmission in Salt Lake City. In contrast with House Finches, other
+bird species had less mosquito blood meal counts in WNV-negative areas,
+further suggesting that they do not play a role as an amplifying host in
+WNV transmission.
 
 ## Interpretation of 2nd analysis (e.g. generalized linear model)
 
-The second analysis… fill in here what it was, the summary of the
-results, and your interpretation.
+The generalized linear model indicated a significant positive
+relationship between the number of House Finch blood meals and
+WNV-positive sites. The p-value of 0.0287 tells us the relationship
+between the House Finch blood meals and whether a site was WNV-positive
+and that it is highly unlikely that it was due to random chance. The
+non-negative p-value also shows a positive relationship between the
+number of House Finch blood meals and WNV-positivity, meaning that as
+one increases, so does the other.The binary model tested the likelihood
+of WNV-positive and WNV-negative areas having more House Finch blood
+meals. The numeric model tested whether sites with higher numbers of
+House Finch blood meals have a higher rate of WNV-transmission. The
+results of the generalized linear model supported the hypothesis.
 
 # CONCLUSION
 
-Fill in here… State the overall answer to your research question, based
-on all analyses. Mention whether the evidence supports your hypothesis
-and what it suggests about WNV amplification in Salt Lake City.
+Overall, the results and the analysis of the data support the hypothesis
+that House Finches act as key amplifying hosts for West Nile Virus
+transmission in Salt Lake City, Utah. The data analyses suggest that
+areas with higher numbers of House Finches may have a higher likelihood
+of being a site of high transmission of West Nile Virus. To strengthen
+this study, future research should include varying seasonal collection,
+additional species of birds, and sample collection from broader areas.
+This could determine if House Finches are amplifying hosts in other
+areas besides Salt Lake City.
 
 # REFERENCES
-
-Fill in here… List all sources you cited in your background and
-throughout the report. Use a consistent style.a conclusion you can draw
-from your analysis.
 
 1.  Komar N, Langevin S, Hinten S, Nemeth N, Edwards E, Hettler D, Davis
     B, Bowen R, Bunning M. Experimental infection of North American
@@ -319,4 +371,4 @@ from your analysis.
     Dis. 2003 Mar;9(3):311-22. <https://doi.org/10.3201/eid0903.020628>
 
 2.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
-    such as plot() and to correct syntax errors. Accessed 2025-10-10.
+    such as plot() and to correct syntax errors. Accessed 2025-10-11.
