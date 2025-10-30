@@ -1,0 +1,103 @@
+---
+title: "newrmarkdownfinaltemplatefordata"
+output: html_document
+author: Kylie Peasley
+date: "2025-10-30"
+---
+
+
+
+``` {r eval=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+ #(data set will be imported here)
+```
+# ABSTRACT
+
+# BACKGROUND
+
+
+
+# Choose some colors
+cols <- c(rainbow(30)[c(10:29,1:5)])  # rainbow colors
+
+# horizontal barplot
+par(mar=c(5,12,2,2))  # wider left margin for names
+bp <- barplot(duration$mean, horiz=TRUE, names.arg=duration$Bird,
+              las=1, col=cols, xlab="Days of detectable viremia", xlim=c(0,7))
+
+# add error bars
+arrows(duration$lo, bp, duration$hi, bp,
+       angle=90, code=3, length=0.05, col="black", xpd=TRUE)
+```
+```{r eval=FALSE}
+#the data will be imported once I figure out how to do that
+data <- data.frame(
+  name=letters[1:5],
+  value=sample(seq(4,15),5)
+)
+
+#basic barplot
+barplot(height=data$value, names=data$name)
+```
+
+# STUDY QUESTION and HYPOTHESIS
+
+## Questions  
+ Does the presence of music decrease the sensation of pain?
+
+## Hypothesis 
+  Music therapy decreases the sensation of pain compared to no music or pink noise.
+## Prediction
+
+
+# METHODS
+
+
+##1st analysis (barplots)
+
+##2nd analysis (generalized linear regression model)
+
+
+```{r test name}
+# second-analysis-or-plot, music presence against binary +/_
+#This test will determine if there is a significant relationship between whether a patient is listening to music or not and their pain levels reported
+# second-analysis-or-plot, music presence against binary +/_
+# Placeholder data for demonstration
+data <- data.frame(
+  pain_present = sample(0:1, 20, replace = TRUE),   # binary outcome
+  music_present = sample(c(0, 1), 20, replace = TRUE),  # binary predictor
+  pain_score = runif(20, 0, 10)  # continuous variable (e.g., pain rating)
+)
+
+# Test if music presence predicts pain presence
+glm1 <- glm(pain_present ~ music_present,
+            data = data,
+            family = binomial)
+summary(glm1)
+
+# GLM with music presence against pain score
+glm2 <- glm(pain_score ~ music_present,
+            data = data)
+summary(glm2)
+
+```
+
+# DISCUSSION
+ 
+
+## Interpretation of 1st analysis (barplots)
+
+
+
+## Interpretation of 2nd analysis (generalized linear model)
+
+
+# CONCLUSION
+
+
+
+# REFERENCES     
+1. 
+
+2. ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions such as plot() and to correct syntax errors. Accessed `r Sys.Date()`.
+

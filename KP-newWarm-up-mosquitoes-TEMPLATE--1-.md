@@ -213,14 +213,22 @@ areas where House Finches are a less common source of bloodmeals.
 
 # METHODS
 
-Fill in here… Summarize the procedures and analyses you use in this
-report. In this section, describe what you did and why. Don’t just
-restate the code — explain the logic of each analysis in plain language.
-Keep each subsection short (2–4 sentences).
+Mosquito samples were collected from various areas in Salt Lake City
+and the sites they came from were categorized into either WNV-positive 
+or WNV-negative based on if WNV was detected in the sample. Only the
+mosquitoes with blood meal samples were used for data collection. DNA 
+was extracted from the bloodmeals and amplified by Polymerase Chain 
+Reaction (PCR) and then sequenced. The DNA sequence results were then
+cross referenced with known species sequences in a database to determine
+the host species for each blood meal. 
 
-The methods used to test the hypothesis were 2 barplot analyses and
+The number of mosquito bloodmeals from each host species was compared
+between WNV-negative sites and WNV-positive sites using a barplot for
+ease of visualization. Barplots are helpful to compare categories, in
+this case being the count of bloodmeals from different bird species
+within areas of WNV transmission. 
 
-## Fill in 1st analysis e.g. barplots
+## Fill in 1st analysis e.g.(barplots)
 
 Fill in here… Explain that you compared the number of mosquito blood
 meals from each host species between sites with no WNV-positive pools
@@ -229,11 +237,17 @@ helps visualize this comparison.
 
 ## Fill in 2nd analysis/plot e.g. generalized linear model
 
-Fill in here… Explain that you tested whether the presence or number of
-house finch blood meals predicts whether a site had WNV-positive pools
-(binary) or a higher WNV positivity rate (numeric). Mention that this
-statistical test lets you formally evaluate the relationship suggested
-by the barplots.
+The generalized linear model was used to formally evaluate the relationship 
+between House Finch blood meals and WNV-positive areas, as suggested by the
+barplot analysis. The binary method was used to test if the likelihood of a 
+site being WNV-positive was related to the number of House Finch blood meals.
+The numeric method was used to test whether WNV-positive sites tended to have
+higher numbers of House Finch blood meals compared to WNV-negative sites.
+
+The preconceived notion going into this experiment was that the House Finches 
+would have a stronger impact on the number of West Nile Virus Transmission 
+pools in Salt Lake City, Utah. It was suspected that the number of positive 
+bloodmeals would correlate with how the
 
 ``` r
 # second-analysis-or-plot, glm with house finch alone against binary +/_
@@ -300,7 +314,7 @@ the results. Say whether they support or contradict your hypothesis.
 The first analysis… fill in here what it was, the summary of the
 results, and your interpretation.
 
-## Interpretation of 2nd analysis (e.g. generalized linear model)
+## Interpretation of 2nd analysis (e.g.generalized linear model)
 
 The second analysis… fill in here what it was, the summary of the
 results, and your interpretation.
