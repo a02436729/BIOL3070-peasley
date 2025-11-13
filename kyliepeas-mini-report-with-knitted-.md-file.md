@@ -1,7 +1,7 @@
 Warm-up mini-Report: Mosquito Blood Hosts in Salt Lake City, Utah
 ================
 Kylie Peasley
-2025-11-06
+2025-11-13
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -39,7 +39,9 @@ WNV positive areas.
 West Nile Virus (WNV) is a mosquito-borne disease maintained by a
 transmission cycle between birds and mosquitoes, and can spread to
 humans and other animals by a bite from an infected mosquito. Mosquitoes
-can infect and become infected by a bird by feeding on their blood.
+can infect and become infected by a bird by feeding on their blood. This
+research is important because
+
 Previous research has shown that birds have varying viremia duration and
 some species have longer duration than others, thus acting as amplifying
 hosts for the virus (Komar et al.,2003).
@@ -367,4 +369,4 @@ areas besides Salt Lake City.
     Dis. 2003 Mar;9(3):311-22. <https://doi.org/10.3201/eid0903.020628>
 
 2.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
-    such as plot() and to correct syntax errors. Accessed 2025-11-06.
+    such as plot() and to correct syntax errors. Accessed 2025-11-13.

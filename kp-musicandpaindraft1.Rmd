@@ -4,23 +4,47 @@ output: html_document
 author: Kylie Peasley
 date: "2025-10-30"
 ---
+```
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
 
 # ABSTRACT
 
 # BACKGROUND
 Pain is something that a lot of individuals have to deal with, especially patients with chronic pain due to other illnesses or diseases such as fibromyalgia. This study looks at how music can be used to help relieve pain or lower pain sensations for patients compared to pink noise as a control. 
 
-``` {r}
+```{r code chunk 1}
+
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+data <- read.csv("dataset.csv")
+
+data_long <- data %>%
+  pivot_longer(
+    cols = c(pic1, pic2, pim1, pim2),
+    names_to = "treatment",
+    values_to = "value"
+  )
+
 ggplot(
   data_long %>%
     mutate(
-      treatment = recode(treatment,
-                         pic1 = "Before Control",
-                         pic2 = "After Control",
-                         pim1 = "Before Music",
-                         pim2 = "After Music"),
-      # optional: control order on x-axis
-      treatment = factor(treatment, levels = c("Before Control", "After Control", "Before Music", "After Music"))
+      treatment = recode(
+        treatment,
+        pic1 = "Before Control",
+        pic2 = "After Control",
+        pim1 = "Before Music",
+        pim2 = "After Music"
+      ),
+      treatment = factor(
+        treatment,
+        levels = c("Before Control", "After Control", "Before Music", "After Music")
+      )
     ),
   aes(x = treatment, y = value, fill = treatment)
 ) +
@@ -38,6 +62,7 @@ ggplot(
   ) +
   xlab("Pain Intensity") +
   ylab("Pain Level")
+
 ```
 
 # STUDY QUESTION and HYPOTHESIS
@@ -84,7 +109,7 @@ ggplot(data_long, aes(x = treatment, y = value, fill = treatment)) +
 
 ```
 
-```{r 3rd code chunk}
+```{r 3rd code chunk, eval=FALSE}
 library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -136,7 +161,7 @@ ggplot(data_long_pim, aes(x = treatment, y = value, fill = treatment)) +
   )
 ```
 
-```{r test name}
+```{r test name, eval=FALSE}
 # second-analysis-or-plot, music presence against binary +/_
 #This test will determine if there is a significant relationship between whether a patient is listening to music or not and their pain levels reported
 # second-analysis-or-plot, music presence against binary +/_
@@ -182,3 +207,6 @@ Possible limitations inlcude that the pain scale is based on each individuals pa
 
 3. ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions such as plot() and to correct syntax errors. Accessed `r Sys.Date()`.
 
+install.packages("ggplot2")
+
+library(ggplot2)
