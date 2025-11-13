@@ -7,19 +7,15 @@ output:
     keep_md: true
 ---
 
-```{r setup, include=FALSE}
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-```
+
 
 # ABSTRACT
 
 # BACKGROUND
 Pain is something that a lot of individuals have to deal with, especially patients with chronic pain due to other illnesses or diseases such as fibromyalgia. This study looks at how music can be used to help relieve pain or lower pain sensations for patients compared to pink noise as a control. 
 
-```{r code chunk 1}
 
+``` r
 library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -64,8 +60,14 @@ ggplot(
   ) +
   xlab("Pain Intensity") +
   ylab("Pain Level")
+```
 
 ```
+## Warning: Removed 92 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+```
+
+![](kp-musicandpaindraft1_files/figure-html/code chunk 1-1.png)<!-- -->
 
 # STUDY QUESTION and HYPOTHESIS
 
@@ -85,7 +87,8 @@ ggplot(
 
 ##2nd analysis (generalized linear regression model)
 library(patchwork)
-```{r code chunk 2}
+
+``` r
 library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -108,10 +111,17 @@ ggplot(data_long, aes(x = treatment, y = value, fill = treatment)) +
     axis.title = element_text(size = 12, face = "bold"),
     legend.position = "none"
   )
-
 ```
 
-```{r 3rd code chunk, eval=FALSE}
+```
+## Warning: Removed 46 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+```
+
+![](kp-musicandpaindraft1_files/figure-html/code chunk 2-1.png)<!-- -->
+
+
+``` r
 library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -135,10 +145,10 @@ ggplot(data_long, aes(x = treatment, y = value, fill = treatment)) +
     axis.title = element_text(size = 12, face = "bold"),
     legend.position = "none"
   )
-
 ```
 
-``` {r code chunk pim}
+
+``` r
 library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -163,7 +173,15 @@ ggplot(data_long_pim, aes(x = treatment, y = value, fill = treatment)) +
   )
 ```
 
-```{r test name, eval=FALSE}
+```
+## Warning: Removed 46 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+```
+
+![](kp-musicandpaindraft1_files/figure-html/code chunk pim-1.png)<!-- -->
+
+
+``` r
 # second-analysis-or-plot, music presence against binary +/_
 #This test will determine if there is a significant relationship between whether a patient is listening to music or not and their pain levels reported
 # second-analysis-or-plot, music presence against binary +/_
@@ -184,7 +202,6 @@ summary(glm1)
 glm2 <- glm(pain_score ~ music_present,
             data = data)
 summary(glm2)
-
 ```
 
 # DISCUSSION
@@ -207,7 +224,7 @@ Possible limitations inlcude that the pain scale is based on each individuals pa
 
 2. Soeteway, Antoine. “ANOVA in R.” Stats and R, Oct. 2020, statsandr.com/blog/anova-in-r/. Accessed 11 Nov. 2025.  
 
-3. ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions such as plot() and to correct syntax errors. Accessed `r Sys.Date()`.
+3. ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions such as plot() and to correct syntax errors. Accessed 2025-11-13.
 
 install.packages("ggplot2")
 
