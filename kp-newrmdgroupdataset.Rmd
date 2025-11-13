@@ -1,54 +1,55 @@
 ---
-title: "newrmarkdownfinaltemplatefordata"
+title: "Peasley-newrmarkdownfinaltemplatefordata"
 output: html_document
 author: Kylie Peasley
 date: "2025-10-30"
 ---
 
-
-
-``` {r eval=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
- #(data set will be imported here)
-```
 # ABSTRACT
 
 # BACKGROUND
+Pain is something that a lot of individuals have to deal with, especially patients with chronic pain due to other illnesses or diseases such as fibromyalgia. This study looks at how music can be used to help relieve pain or lower pain sensations for patients compared to pink noise as a control. 
 
-
-
-# Choose some colors
-cols <- c(rainbow(30)[c(10:29,1:5)])  # rainbow colors
-
-# horizontal barplot
-par(mar=c(5,12,2,2))  # wider left margin for names
-bp <- barplot(duration$mean, horiz=TRUE, names.arg=duration$Bird,
-              las=1, col=cols, xlab="Days of detectable viremia", xlim=c(0,7))
-
-# add error bars
-arrows(duration$lo, bp, duration$hi, bp,
-       angle=90, code=3, length=0.05, col="black", xpd=TRUE)
-```
-```{r eval=FALSE}
-#the data will be imported once I figure out how to do that
-data <- data.frame(
-  name=letters[1:5],
-  value=sample(seq(4,15),5)
-)
-
-#basic barplot
-barplot(height=data$value, names=data$name)
+``` {r}
+ggplot(
+  data_long %>%
+    mutate(
+      treatment = recode(treatment,
+                         pic1 = "Before Control",
+                         pic2 = "After Control",
+                         pim1 = "Before Music",
+                         pim2 = "After Music"),
+      # optional: control order on x-axis
+      treatment = factor(treatment, levels = c("Before Control", "After Control", "Before Music", "After Music"))
+    ),
+  aes(x = treatment, y = value, fill = treatment)
+) +
+  geom_boxplot(alpha = 0.6) +
+  scale_y_continuous(breaks = seq(0, 10, 1)) +
+  coord_cartesian(ylim = c(0, 10)) +
+  scale_fill_brewer(palette = "Spectral") +
+  theme_classic() +
+  theme(
+    legend.position = "none",
+    axis.text.x = element_text(size = 12, face = "bold"),
+    axis.text.y = element_text(size = 12),
+    axis.title.x = element_text(size = 16, face = "bold", margin = margin(t = 10)),
+    axis.title.y = element_text(size = 16, face = "bold", margin = margin(r = 10))
+  ) +
+  xlab("Pain Intensity") +
+  ylab("Pain Level")
 ```
 
 # STUDY QUESTION and HYPOTHESIS
 
 ## Questions  
- Does the presence of music decrease the sensation of pain?
+ Does the presence of music decrease the sensation of pain compared to the presence of pink noise as a control in patients with fibromyalgia?
 
 ## Hypothesis 
-  Music therapy decreases the sensation of pain compared to no music or pink noise.
+  Music therapy decreases the sensation of pain compared to or pink noise.
+  
 ## Prediction
-
+  Participants with fibromyalgia who were given 
 
 # METHODS
 
@@ -56,7 +57,84 @@ barplot(height=data$value, names=data$name)
 ##1st analysis (barplots)
 
 ##2nd analysis (generalized linear regression model)
+library(patchwork)
+```{r code chunk 2}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
 
+data <- read.csv("dataset.csv")
+
+# Pivot pic1 and pic2 into long format
+data_long <- data %>%
+  pivot_longer(cols = c(pic1, pic2), names_to = "treatment", values_to = "value")
+
+# Make boxplot
+ggplot(data_long, aes(x = treatment, y = value, fill = treatment)) +
+  geom_boxplot(alpha = 0.7, width = 0.6) +
+  theme_classic() +
+  scale_fill_brewer(palette = "Set1") +
+  ylab("Pain Level") +
+  xlab("Pain Intensity-Control 1 (before) and Pain Intensity-Control 2 (after)") +
+  theme(
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 12, face = "bold"),
+    legend.position = "none"
+  )
+
+```
+
+```{r 3rd code chunk}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+# Read your dataset
+data <- read.csv("dataset.csv")
+
+# Pivot pic2 and pim2 into long format
+data_long <- data %>%
+  pivot_longer(cols = c(pim1, pim2), names_to = "treatment", values_to = "value")
+
+# Make boxplot
+ggplot(data_long, aes(x = treatment, y = value, fill = treatment)) +
+  geom_boxplot(alpha = 0.7, width = 0.6) +
+  theme_classic() +
+  scale_fill_brewer(palette = "Set1") +
+  ylab("Pain Level") +
+  xlab("Pain Intensity-Music 1 (before) and Pain Intensity-Music 2 (after)") +
+  theme(
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 12, face = "bold"),
+    legend.position = "none"
+  )
+
+```
+
+``` {r code chunk pim}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+data <- read.csv("dataset.csv")
+
+# Pivot pim1 and pim2 into long format
+data_long_pim <- data %>%
+  pivot_longer(cols = c(pic2, pim2), names_to = "treatment", values_to = "value")
+
+# Make boxplot
+ggplot(data_long_pim, aes(x = treatment, y = value, fill = treatment)) +
+  geom_boxplot(alpha = 0.7, width = 0.6) +
+  theme_classic() +
+  scale_fill_brewer(palette = "Set1") +
+  ylab("Pain Level") +
+  xlab("Pain Intensity-Control 2 (after) and Pain Intensity-Music 2 (after)") +
+  theme(
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 12, face = "bold"),
+    legend.position = "none"
+  )
+```
 
 ```{r test name}
 # second-analysis-or-plot, music presence against binary +/_
@@ -94,10 +172,13 @@ summary(glm2)
 
 # CONCLUSION
 
+Possible limitations inlcude that the pain scale is based on each individuals pain interpretation as well as how some people may have higher/lower pain tolerances than others. Pain is subjective. Pain levels are not on the same exact scale for every individual. The pain intensity pre-treatment for the control was slightly lower than the pain intensity pre-treatment for the music. This
 
 
 # REFERENCES     
-1. 
+1. Eduardo A. Garza-Villarreal, Victor Pando-Naude, Fernando A. Barrios, Peter Vuust, Lene Vase, Elvira Brattico, Erick H. Pasaye, and Sarael Alcauter (2019). Functional Connectivity of Music-Induced Analgesia in Fibromyalgia. OpenNeuro. [Dataset] doi: 10.18112/openneuro.ds001928.v1.1.0
 
-2. ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions such as plot() and to correct syntax errors. Accessed `r Sys.Date()`.
+2. Soeteway, Antoine. “ANOVA in R.” Stats and R, Oct. 2020, statsandr.com/blog/anova-in-r/. Accessed 11 Nov. 2025.  
+
+3. ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions such as plot() and to correct syntax errors. Accessed `r Sys.Date()`.
 

@@ -1,7 +1,7 @@
 Warm-up mini-Report: Mosquito Blood Hosts in Salt Lake City, Utah
 ================
 Kylie Peasley
-2025-10-11
+2025-11-06
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -48,7 +48,7 @@ To identify hosts, the extracted DNA is amplified using polymerase chain
 reaction (PCR) and then sequenced, allowing scientists to match the
 resulting genetic sequences to known species sequences in reference
 databases. Based on this, samples taken from mosquitoes in Salt Lake
-City in high transmission and WNV postive areas should have more House
+City in high transmission and WNV positive areas should have more House
 Finch bloodmeals than other species in that area.
 
 ``` r
@@ -367,4 +367,4 @@ areas besides Salt Lake City.
     Dis. 2003 Mar;9(3):311-22. <https://doi.org/10.3201/eid0903.020628>
 
 2.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
-    such as plot() and to correct syntax errors. Accessed 2025-10-11.
+    such as plot() and to correct syntax errors. Accessed 2025-11-06.
