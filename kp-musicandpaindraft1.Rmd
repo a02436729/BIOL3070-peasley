@@ -1,6 +1,7 @@
 ---
 title: "Peasley-newrmarkdownfinaltemplatefordata"
 output: html_document
+keep_md: true
 author: Kylie Peasley
 date: "2025-10-30"
 ---
