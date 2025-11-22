@@ -11,7 +11,7 @@
 
 <meta name="author" content="Kylie Peasley" />
 
-<meta name="date" content="2025-10-30" />
+<meta name="date" content="2025-11-22" />
 
 <title>Peasley-newrmarkdownfinaltemplatefordata</title>
 
@@ -352,21 +352,67 @@ display: none;
 
 <h1 class="title toc-ignore">Peasley-newrmarkdownfinaltemplatefordata</h1>
 <h4 class="author">Kylie Peasley</h4>
-<h4 class="date">2025-10-30</h4>
+<h4 class="date">2025-11-22</h4>
 
 </div>
 
 
 <div id="abstract" class="section level1">
 <h1>ABSTRACT</h1>
+<p>Fibromyalgia is a chronic medical condition and presents with
+symptoms characterized by pain, fatigue, and various challenges in daily
+life. Music therapy has shown positive results in reducing pain
+perception. This study reanalyzed the dataset from Pando-Naudé et
+al. (2019) to evaluate whether listening to music reduces pain more
+effectively than a control (pink noise) in individuals with
+fibromyalgia. The dataset included forty individuals total; 20
+fibromyalgia patients and 20 age-matched controls. The data was
+visualized with boxplots and statistical t-tests were conducted to
+determine whether there were significant differences between pre and
+post condition pain levels. Results showed a decrease in pain ratings
+after listening to music and a slight increase in the control,
+suggesting that pink noise may not provide analgesic effects. These
+findings support the hypothesis that music may have pain relieving
+effects in individuals with fibromyalgia. Although limited by subjective
+pain reporting and a lower sample size, the results provide more support
+for music therapy for chronic pain management and can help pave way for
+future research.</p>
 </div>
 <div id="background" class="section level1">
 <h1>BACKGROUND</h1>
-<p>Pain is something that a lot of individuals have to deal with,
-especially patients with chronic pain due to other illnesses or diseases
-such as fibromyalgia. This study looks at how music can be used to help
-relieve pain or lower pain sensations for patients compared to pink
-noise as a control.</p>
+<p>Fibromyalgia is a medical condition that presents through symptoms
+“including fatigue, sleep disturbances, cognitive dysfunction, and
+depressive episodes… chronic fatigue syndrome, irritable bowel syndrome
+(IBS), irritable bladder syndrome or interstitial cystitis, and
+temporomandibular disorder (TMD).” Such a disease negatively impacts an
+individual’s ability to function in daily life. With no easy option for
+long-term relief, it becomes of the utmost importance to study a wide
+variety of therapies and treatments to improve how Fibromyalgia is
+addressed and treated. In past studies, music has been associated with
+benefits in treatment and outcome. In their study, Kemper &amp; Danhauer
+reported that individuals who received music treatment experienced lower
+levels of anxiety and enhanced moods. Improving the individual’s
+experience of pain and anxiety often indirectly improves physical
+condition, thereby raising quality of life. Our study addresses the
+effect of music on an individual’s experience of chronic pain due to
+fibromyalgia. Participants in this study, all with Fibromyalgia, are
+split into two groups: control and treatment. These two groups are
+questioned about their pain level from 1-10 both before and after
+receiving the music treatment, either the control or music. This study
+is important because it addresses a significant need in our society.
+Many individuals who struggle with this chronic pain have had
+unsatisfactory results with traditional medicine and treatment. Believed
+to be present in 2-8% of the world population, effective treatment and
+relief from Fibromyalgia becomes an important breakthrough to strive
+for. This would thereby improve society and further our understanding of
+this disease. The question of our study is: does music treatment help
+relieve pain or lower pain perception associated with fibromyalgia? We
+predict that participants with fibromyalgia experiencing chronic pain
+will report less pain while listening to music compared to pink noise
+(control). Additionally, we predict that participants will report lower
+pain after listening to music than before music treatment. Our
+hypothesis is that the statistical tests (T-tests) run with the data
+will show reliable significance.</p>
 <pre class="r"><code>library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -419,9 +465,8 @@ ggplot(
 <h1>STUDY QUESTION and HYPOTHESIS</h1>
 <div id="questions" class="section level2">
 <h2>Questions</h2>
-<p>Does the presence of music decrease the sensation of pain compared to
-the presence of pink noise as a control in patients with
-fibromyalgia?</p>
+<p>Does music treatment help relieve pain or lower pain perception
+associated with fibromyalgia?</p>
 </div>
 <div id="hypothesis" class="section level2">
 <h2>Hypothesis</h2>
@@ -430,14 +475,52 @@ noise.</p>
 </div>
 <div id="prediction" class="section level2">
 <h2>Prediction</h2>
-<p>Participants with fibromyalgia who were given</p>
+<p>Participants with fibromyalgia who were given music as a treatment
+will have an overall reduction in pain levels.</p>
 </div>
 </div>
 <div id="methods" class="section level1">
 <h1>METHODS</h1>
-<p>##1st analysis (barplots)</p>
-<p>##2nd analysis (generalized linear regression model)
-library(patchwork)</p>
+<p>We used the dataset provided by Pando-Naude et al.(2019), Functional
+connectivity of music-induced analgesia in fibromyalgia. This dataset
+included twenty individuals diagnosed with fibromyalgia (FM) and twenty
+healthy individuals matching in age, as a control (HC). Before the start
+of data collection, the FM group were instructed not to take any
+medications to assist in pain that day and HC group individuals went
+through a screening to ensure no presence of pain.</p>
+<p>In the original study, participants were asked to rate their pain
+level on a scale of 1-10 before and after listening to 5 minutes of
+either music chosen by the individual or the control (pink noise). The
+music chosen by the individual had to meet certain criteria, having a
+tempo less than 120 bpm (defined as a slow tempo), as well as being
+familiar and deemed as pleasant by the individual.</p>
+<p>Participants provided pain ratings (on a scale of one to ten) before
+the music or control and then after listening to either music or
+control. Four trials were done for each individual, each lasting
+approximately five minutes. For this study, no new data was collected
+and the original dataset was not tampered with nor was any data added to
+it or removed from it.</p>
+<p>The data was first analyzed by creating several boxplots to visualize
+it before running a statistical T-Test. The first figure is a 4 panel
+side-by-side boxplot, comparing pain intensity across pre-control,
+post-control, pre-music, and post-music conditions. Figure 2 is a
+side-by-side boxplot comparing the pre-control and post-control pain
+ratings. Figure 3 is another side-by-side boxplot comparing the
+pre-music and post-music pain ratings. These boxplots allowed for
+initial visualization of the potential differences before and after the
+control and music, showing possible music-induced analgesic effects.</p>
+<p>Before running statistical analyses, the music condition variable
+(music vs. no-music) was recoded into binary form (1/0) in a spreadsheet
+and then exported back into CSV format. This formatting step ensured
+compatibility with the statistical functions used in R. The statistical
+test was done in R and the p-value was used to determine how significant
+the results are.</p>
+<p>We conducted two paired T-tests, one for the control group and
+another for the music group to determine whether pain ratings differed
+significantly between the pre- and post-stimulus conditions. All
+statistical analyses were performed in R and the resulting p-value and
+t-value were used to evaluate the statistical significance of any
+observed differences.</p>
 <pre class="r"><code>library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -511,44 +594,64 @@ ggplot(data_long_pim, aes(x = treatment, y = value, fill = treatment)) +
 <pre><code>## Warning: Removed 46 rows containing non-finite outside the scale range
 ## (`stat_boxplot()`).</code></pre>
 <p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
-<pre class="r"><code># second-analysis-or-plot, music presence against binary +/_
-#This test will determine if there is a significant relationship between whether a patient is listening to music or not and their pain levels reported
-# second-analysis-or-plot, music presence against binary +/_
-# Placeholder data for demonstration
-data &lt;- data.frame(
-  pain_present = sample(0:1, 20, replace = TRUE),   # binary outcome
-  music_present = sample(c(0, 1), 20, replace = TRUE),  # binary predictor
-  pain_score = runif(20, 0, 10)  # continuous variable (e.g., pain rating)
-)
-
-# Test if music presence predicts pain presence
-glm1 &lt;- glm(pain_present ~ music_present,
-            data = data,
-            family = binomial)
-summary(glm1)
-
-# GLM with music presence against pain score
-glm2 &lt;- glm(pain_score ~ music_present,
-            data = data)
-summary(glm2)</code></pre>
+<pre class="r"><code>t.test(data$pic2, data$pic1, paired = TRUE)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  data$pic2 and data$pic1
+## t = 1.9262, df = 16, p-value = 0.07204
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##  -0.04733106  0.98850753
+## sample estimates:
+## mean difference 
+##       0.4705882</code></pre>
+<pre class="r"><code>t.test(data$pim2, data$pim1, paired = TRUE)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  data$pim2 and data$pim1
+## t = -3.0822, df = 16, p-value = 0.007141
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##  -1.8863514 -0.3489427
+## sample estimates:
+## mean difference 
+##       -1.117647</code></pre>
 </div>
-<div id="discussion" class="section level1">
-<h1>DISCUSSION</h1>
-<div id="interpretation-of-1st-analysis-barplots" class="section level2">
-<h2>Interpretation of 1st analysis (barplots)</h2>
+<div id="results" class="section level1">
+<h1>RESULTS</h1>
+<p>Our results show statistical evidence suggesting that music leads to
+a greater decrease in pain after subjects listened to music. The control
+exhibited moderate correlation for the pink noise to affect pain levels
+in the positive direction, meaning that there may be evidence suggesting
+that pink noise increased pain. The treatment group showed a strong
+statistical significance, rejecting the null hypothesis that music does
+not affect pain sensation. Furthermore, there was a greater mean
+difference that was in the negative direction for music, reflecting a
+visible decrease in the average reported pain levels in patients.</p>
 </div>
-<div id="interpretation-of-2nd-analysis-generalized-linear-model" class="section level2">
-<h2>Interpretation of 2nd analysis (generalized linear model)</h2>
-</div>
-</div>
-<div id="conclusion" class="section level1">
-<h1>CONCLUSION</h1>
-<p>Possible limitations inlcude that the pain scale is based on each
-individuals pain interpretation as well as how some people may have
-higher/lower pain tolerances than others. Pain is subjective. Pain
-levels are not on the same exact scale for every individual. The pain
-intensity pre-treatment for the control was slightly lower than the pain
-intensity pre-treatment for the music. This</p>
+<div id="discussionconclusion" class="section level1">
+<h1>DISCUSSION/CONCLUSION</h1>
+<p>Although our evidence supports our hypothesis, we faced limitations
+in our research. The major limitation was each person’s interpretation
+of pain because of each individual’s personal experiences and pain
+tolerances. A way to reduce the effects of this is to use a visual pain
+scale, such as the “Wong-Baker FACES Scale,” that can provide a visual
+reference point to help patients determine pain levels on a scale that
+could be more universal. Additionally, the experiment utilized data from
+only 20 patients. Future research may benefit from a larger sample size
+in order to achieve more concise data.</p>
+<p>The results of this experiment promote further research into finding
+ways to relieve pain in patients presenting with a Fibromyalgia
+diagnosis, specifically utilizing music as a therapy method. Further
+research should compare both different forms of “noise” (white, brown,
+etc.) and multiple music genres to other methods of pain reduction, such
+as medication or physical/talk therapy. Regardless, because of the
+idiopathic cause of this disease, the evidence showing decreased pain
+from music is a step towards a more comfortable future in patients who
+have this diagnosis, as they may find affordable and effective methods
+for finding relief.</p>
 </div>
 <div id="references" class="section level1">
 <h1>REFERENCES</h1>
@@ -558,14 +661,18 @@ Barrios, Peter Vuust, Lene Vase, Elvira Brattico, Erick H. Pasaye, and
 Sarael Alcauter (2019). Functional Connectivity of Music-Induced
 Analgesia in Fibromyalgia. OpenNeuro. [Dataset] doi:
 10.18112/openneuro.ds001928.v1.1.0</p></li>
-<li><p>Soeteway, Antoine. “ANOVA in R.” Stats and R, Oct. 2020,
-statsandr.com/blog/anova-in-r/. Accessed 11 Nov. 2025.</p></li>
 <li><p>ChatGPT. OpenAI, version Jan 2025. Used as a reference for
 functions such as plot() and to correct syntax errors. Accessed
-2025-11-13.</p></li>
+2025-11-22.</p></li>
+<li><p>Clauw, Daniel J. “Fibromyalgia: A Clinical Review” | Rheumatology
+| JAMA | Jama Network,
+jamanetwork.com/journals/jama/fullarticle/1860480/. Accessed 20
+Nov. 2025.</p></li>
+<li><p>Clauw, Daniel J. “Fibromyalgia: An Overview.” The American
+Journal of Medicine, vol. 122, no. 12, Dec. 2009, <a href="doi:10.1016/j.amjmed.2009.09.006" class="uri">doi:10.1016/j.amjmed.2009.09.006</a>.</p></li>
+<li><p>Danhauer, Suzanne. “Music as Therapy.” Southern Medical Journal,
+2005. <a href="https://doi.org/10.1097/01.SMJ.0000154773.11986.39" class="uri">https://doi.org/10.1097/01.SMJ.0000154773.11986.39</a></p></li>
 </ol>
-<p>install.packages(“ggplot2”)</p>
-<p>library(ggplot2)</p>
 </div>
 
 

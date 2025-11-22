@@ -22,7 +22,7 @@ This report investigates the transmission of West Nile Virus through birds and m
 West Nile Virus (WNV) is a mosquito-borne disease maintained by a transmission cycle between birds and mosquitoes, and can spread to humans and other animals by a bite from an infected mosquito. Mosquitoes can infect and become infected by a bird by feeding on their blood. This research is important because 
 
 
-Previous research has shown that birds have varying viremia duration and some species have longer duration than others, thus acting as amplifying hosts for the virus (Komar et al.,2003). 
+Previous research has shown that birds have varying viremia duration and some species have longer duration than others, thus acting as amplifying hosts for the virus (Komar et al.,2003). This study aims to identify ***********
 
 To identify hosts, the extracted DNA is  amplified using polymerase chain reaction (PCR) and then sequenced, allowing scientists to match the resulting genetic sequences to known species sequences in reference databases. Based on this, samples taken from mosquitoes in Salt Lake City in high transmission and WNV positive areas should have more House Finch bloodmeals than other species in that area. 
 
