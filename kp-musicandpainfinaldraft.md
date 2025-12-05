@@ -1,7 +1,7 @@
 Effect of Music on Pain Sensation for Individuals with Chronic Pain
 ================
 Kylie Peasley
-2025-12-04
+2025-12-05
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -9,7 +9,7 @@ Kylie Peasley
   - [Questions](#questions)
   - [Hypothesis](#hypothesis)
   - [Prediction](#prediction)
-- [Methods and results](#methods-and-results)
+- [METHODS AND RESULTS](#methods-and-results)
 - [DISCUSSION/CONCLUSION](#discussionconclusion)
   - [Interpretation of 1st analysis (box
     plots)](#interpretation-of-1st-analysis-box-plots)
@@ -22,13 +22,13 @@ Kylie Peasley
 Fibromyalgia is a chronic medical condition and presents with symptoms
 characterized by pain, fatigue, and various challenges in daily life.
 Music therapy has shown positive results in reducing pain perception.
-This study reanalyzed the dataset from Pando-Naudé et al. (2019) to
+This study analyzed the dataset from Pando-Naudé et al. (2019) to
 evaluate whether listening to music reduces pain more effectively than a
 control (pink noise) in individuals with fibromyalgia. The dataset
 included forty individuals total; 20 fibromyalgia patients and 20
-age-matched controls. The data was visualized with boxplots and
+age-matched controls. The data was visualized with box plots and
 statistical t-tests were conducted to determine whether there were
-significant differences between pre and post condition pain levels.
+significant differences between pre and post treatment pain levels.
 Results showed a decrease in pain ratings after listening to music and a
 slight increase in the control, suggesting that pink noise may not
 provide analgesic effects. These findings support the hypothesis that
@@ -41,7 +41,7 @@ management and can help pave way for future research.
 
 Fibromyalgia is a medical condition that presents through symptoms
 “including fatigue, sleep disturbances, cognitive dysfunction, and
-depressive episodes… chronic fatigue syndrome, irritable bowel syndrome
+depressive episodes, chronic fatigue syndrome, irritable bowel syndrome
 (IBS), irritable bladder syndrome or interstitial cystitis, and
 temporomandibular disorder (TMD).” Such a disease negatively impacts an
 individual’s ability to function in daily life. With no easy option for
@@ -122,20 +122,17 @@ ggplot(
     axis.title.x = element_text(size = 16, face = "bold", margin = margin(t = 10)),
     axis.title.y = element_text(size = 16, face = "bold", margin = margin(r = 10))
   ) +
-  xlab("")
+  xlab("") +
+  ylab("Pain Level")
 ```
 
     ## Warning: Removed 92 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](kp-musicandpaindraft1_files/figure-gfm/code%20chunk%201-1.png)<!-- -->
+![](kp-musicandpainfinaldraft_files/figure-gfm/code%20chunk%201-1.png)<!-- -->
 
-``` r
-  ylab("Pain Level")
-```
-
-    ## <ggplot2::labels> List of 1
-    ##  $ y: chr "Pain Level"
+Figure 1. Box plot showing pain levels reported by patients before and
+after both the control and music treatments.
 
 # STUDY QUESTION and HYPOTHESIS
 
@@ -153,7 +150,7 @@ Music therapy decreases the sensation of pain compared to or pink noise.
 Participants with fibromyalgia who were given music as a treatment will
 have an overall reduction in pain levels.
 
-# Methods and results
+# METHODS AND RESULTS
 
 We used the dataset provided by Pando-Naude et al.(2019), Functional
 connectivity of music-induced analgesia in fibromyalgia. This dataset
@@ -229,7 +226,10 @@ ggplot(data_long, aes(x = treatment, y = value, fill = treatment)) +
     ## Warning: Removed 46 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](kp-musicandpaindraft1_files/figure-gfm/code%20chunk%202-1.png)<!-- -->
+![](kp-musicandpainfinaldraft_files/figure-gfm/code%20chunk%202-1.png)<!-- -->
+
+Figure 2. Box plot showing pain levels reported by patients before and
+after the control treatment.
 
 ``` r
 library(ggplot2)
@@ -285,8 +285,10 @@ ggplot(data_long_pim, aes(x = treatment, y = value, fill = treatment)) +
     ## Warning: Removed 46 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](kp-musicandpaindraft1_files/figure-gfm/code%20chunk%20pim-1.png)<!-- -->
-\*\*\*\*\*\*WRITE HERE DESCRiption
+![](kp-musicandpainfinaldraft_files/figure-gfm/code%20chunk%20pim-1.png)<!-- -->
+
+Figure 3. Box plot showing pain levels reported by patients after the
+control treatment and after the music treatment.
 
 ``` r
 t.test(data$pic2, data$pic1, paired = TRUE)
@@ -304,6 +306,8 @@ t.test(data$pic2, data$pic1, paired = TRUE)
     ## mean difference 
     ##       0.4705882
 
+Table 1. Paired t-test with results for control group.
+
 ``` r
 t.test(data$pim2, data$pim1, paired = TRUE)
 ```
@@ -320,73 +324,76 @@ t.test(data$pim2, data$pim1, paired = TRUE)
     ## mean difference 
     ##       -1.117647
 
+Table 2. Paired t-test with results for music group.
+
 # DISCUSSION/CONCLUSION
 
 Our results show statistical evidence suggesting that music leads to a
-greater decrease in pain after subjects listened to music. The control
-exhibited moderate correlation for the pink noise to affect pain levels
-in the positive direction, meaning that there may be evidence suggesting
-that pink noise increased pain. The treatment group showed a strong
-statistical significance, rejecting the null hypothesis that music does
-not affect pain sensation. Furthermore, there was a greater mean
-difference that was in the negative direction for music, reflecting a
-visible decrease in the average reported pain levels in patients.
+greater decrease in pain after subjects listened to it. The control
+treatment exhibited moderate correlation between pink noise and pain
+levels, meaning that there may be evidence suggesting that pink noise
+increased pain. The treatment group showed strong statistical
+significance, allowing us to reject the null hypothesis that music does
+not affect pain sensation. Furthermore, there was a more negative mean
+difference for the music group, reflecting a visible decrease in the
+average reported pain levels in patients.
 
 ## Interpretation of 1st analysis (box plots)
 
-The first box plot analysis, comparing the before and after with both
-control and music, shows a slight increase in pain level for the control
-treatment and a decrease for the music treatment. This combined plot
-allows for an overall comparison betwen the 2 groups both pre and post
-treatment and provides a broad visual summary of the data.
+The first box plot analysis (fig. 1), comparing the before and after
+with both control and music, shows a slight increase in pain level for
+the control treatment and a decrease for the music treatment. This
+combined plot allows for an overall comparison betwen the 2 groups both
+pre and post treatment and provides a broad visual summary of the data.
 
-The second box plot focuses on the control treatment, showing pain
-levels before and after. Pain levels increased after the
-controlntreatment, suggesting the control treatment does not only fail
-to reduce pain levels, but may have been associated with an increase in
-pain levels post-treatment.
+The second box plot (fig.2) focuses on the control treatment, showing
+pain levels before and after. Pain levels increased after the control
+treatment, suggesting the control treatment does not only fail to reduce
+pain levels, but may have been associated with an increase in pain
+levels post-treatment.
 
-The third box plot compares the post-treatment pain levels of the
-control and music groups. Pain levels after the music treatment are
+The third box plot (fig.3) compares the post-treatment pain levels of
+the control and music groups. Pain levels after the music treatment are
 noticeably lower than that of the control treatment, supporting the
 hypothesis that music provides analgesic effects and reduces pain levels
 compared to the control treatment.
 
 ## Interpretation of 2nd analysis (paired T-tests)
 
-The paired t-test for the control group assessed whether pain levels
-changed from before and after the control treatment. The mean difference
-was positive (0.47), and indicates a slight increase in pain levels
-after the treatment.The resulting t-value of 1.92 and p-value of 0.072
-determined that the change was not statistically significant and that
-the increase in pain was likely not an effect of the treatment, but
+The paired t-test for the control group (table 1) assessed whether pain
+levels changed from before and after the control treatment. The mean
+difference was positive (0.47), and indicates a slight increase in pain
+levels after the treatment.The resulting t-value of 1.92 and p-value of
+0.072 determined that the change was not statistically significant and
+that the increase in pain was likely not an effect of the treatment, but
 likely due to random chance.
 
-The paired t-test for the music group also assessed whether pain levels
-changed before and after treatment, but between before and after music
-treatment. The mean difference was negative (-1.117), and indicates a
-decrease in pain levels post treatment. The resulting t-value of -3.082
-and p-value of 0.0071 both indicate that the decrease in pain levels is
-statistically significant and it is highly unlikely that it was due to
-random chance. These results support the hypothesis that music has an
-analgesic effect and leads to lower post-treatment pain levels.
+The paired t-test for the music group (table 2) also assessed whether
+pain levels changed before and after treatment, but between before and
+after music treatment. The mean difference was negative (-1.117), and
+indicates a decrease in pain levels post treatment. The resulting
+t-value of -3.082 and p-value of 0.0071 both indicate that the decrease
+in pain levels is statistically significant and it is highly unlikely
+that it was due to random chance. These results support the hypothesis
+that music has an analgesic effect and leads to lower post-treatment
+pain levels. –End of interpretation–
 
-Although our evidence supports our hypothesis, we faced limitations in
-our research. The major limitation was each person’s interpretation of
-pain because of each individual’s personal experiences and pain
-tolerances. A way to reduce the effects of this is to use a visual pain
-scale, such as the “Wong-Baker FACES Scale” that can provide a visual
-reference point to help patients determine pain levels on a scale that
-could be more universal. Additionally, the experiment utilized data from
-only 20 patients. Future research may benefit from a larger sample size
-in order to achieve more concise data.
+Although our evidence supports our hypothesis, we faced several
+limitations in our research. The main limitation was each person’s
+interpretation of pain, because individual’s personal experiences and
+pain tolerances vary. One way to reduce the effects of the variability
+is to use a visual pain scale, such as the ‘Wong-Baker FACES Scale’ to
+provide a visual reference point to help patients determine pain levels
+on a scale that could be more universal. Additionally, the experiment
+utilized data from only 20 patients. Future research may benefit from a
+larger sample size in order to achieve more concise data.
 
 The results of this experiment promote further research into finding
 ways to relieve pain in patients presenting with a Fibromyalgia
-diagnosis, specifically utilizing music as a therapy method. Further
-research should compare both different forms of “noise” (white, brown,
-etc.) and multiple music genres to other methods of pain reduction, such
-as medication or physical/talk therapy. Regardless, because of the
+diagnosis, specifically music-based therapy methods. Further research
+should compare both different forms of “noise” (white, brown, etc.) and
+multiple music genres to other methods of pain reduction, such as
+medication or physical/talk therapy. Regardless, because of the
 idiopathic cause of this disease, the evidence showing decreased pain
 from music is a step towards a more comfortable future in patients who
 have this diagnosis, as they may find affordable and effective methods
@@ -401,7 +408,7 @@ for finding relief.
     10.18112/openneuro.ds001928.v1.1.0
 
 2.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
-    such as plot() and to correct syntax errors. Accessed 2025-12-04.
+    such as plot() and to correct syntax errors. Accessed 2025-12-05.
 
 3.  Clauw, Daniel J. “Fibromyalgia: A Clinical Review” \| Rheumatology
     \| JAMA \| Jama Network,
